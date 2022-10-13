@@ -126,8 +126,8 @@
         <activity
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
-            android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase_v31">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
