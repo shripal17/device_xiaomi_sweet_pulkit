@@ -201,7 +201,7 @@
          This array should be equal in size to config_screenBrightnessBacklight -->
     <array name="config_screenBrightnessNits">
         <item>0.2100635</item>
-        <item>430.0</item>
+        <item>500.0</item>
     </array>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
