@@ -1,10 +1,15 @@
 app_domain(xiaomiparts_app)
 
 # Access standard system services
+allow xiaomiparts_app activity_service:service_manager find;
+allow xiaomiparts_app activity_task_service:service_manager find;
 allow xiaomiparts_app app_api_service:service_manager find;
+allow xiaomiparts_app audio_service:service_manager find;
 allow xiaomiparts_app audioserver_service:service_manager find;
+allow xiaomiparts_app autofill_service:service_manager find;
 allow xiaomiparts_app cameraserver_service:service_manager find;
 allow xiaomiparts_app drmserver_service:service_manager find;
+allow xiaomiparts_app media_session_service:service_manager find;
 allow xiaomiparts_app mediaextractor_service:service_manager find;
 allow xiaomiparts_app mediaserver_service:service_manager find;
 allow xiaomiparts_app mediametrics_service:service_manager find;

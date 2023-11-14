@@ -20,12 +20,16 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.os.SystemProperties;
 import android.util.Log;
 import androidx.preference.PreferenceManager;
 
+import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
+import org.lineageos.settings.doze.PocketService;
+import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.utils.FileUtils;
@@ -50,6 +54,16 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
         FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "1" : "0");
+
+         // Dirac
+         try {
+            DiracUtils.getInstance(context);
+         } catch (Exception e) {
+            Log.d(TAG, "Dirac is not present in system");
+         }
+
+        // Pocket
+        PocketService.startService(context);
 
         // Per app refresh rate
         RefreshUtils.startService(context);

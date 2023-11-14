@@ -24,12 +24,17 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <application
         android:label="@string/device_settings_app_name"
-        android:persistent="true">
+        android:persistent="true"
+        android:theme="@style/Theme.SubSettingsBase">
 
         <receiver android:name=".BootCompletedReceiver"
             android:exported="true">
@@ -42,12 +47,39 @@
         <activity
             android:name=".TileEntryActivity"
             android:label="@string/device_settings_app_name"
-            android:theme="@style/Theme.SubSettingsBase"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".dirac.DiracActivity"
+            android:label="@string/dirac_title"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data 
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.sound" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/dirac_summary" />
+        </activity>
+
+        <service
+            android:name=".dirac.DiracTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_headphone"
+            android:label="@string/dirac_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+            android:value="true" />
+        </service>
 
         <service
             android:name=".doze.DozeService"
@@ -57,7 +89,6 @@
         <activity
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
-            android:theme="@style/Theme.SubSettingsBase"
             android:exported="true">
             <intent-filter>
                 <action android:name="org.lineageos.settings.device.DOZE_SETTINGS" />
@@ -68,8 +99,7 @@
         <activity
             android:name=".thermal.ThermalSettingsActivity"
             android:label="@string/thermal_title"
-            android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -86,7 +116,6 @@
 
         <activity
             android:name=".thermal.TouchSettingsActivity"
-            android:theme="@style/Theme.SubSettingsBase"
             android:exported="true" />
 
         <service
@@ -97,7 +126,6 @@
         <activity
             android:name=".display.DcDimmingSettingsActivity"
             android:label="@string/dc_dimming_enable_title"
-            android:theme="@style/Theme.SubSettingsBase"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -126,8 +154,7 @@
         <activity
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
-            android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -143,6 +170,12 @@
             android:name=".refreshrate.RefreshService"
             android:exported="true"
             android:permission="RefreshService">
+        </service>
+
+        <service
+            android:name=".doze.PocketService"
+            android:exported="true"
+            android:permission="PocketService">
         </service>
 
     </application>

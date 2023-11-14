@@ -7,3 +7,6 @@ binder_call(xiaomiparts_app, hal_touchfeature_xiaomi_default)
 # Allow xiaomiparts_app to r/w to modify exposure adjustment
 allow xiaomiparts_app vendor_sysfs_graphics:dir r_dir_perms;
 allow xiaomiparts_app vendor_sysfs_graphics:file rw_file_perms;
+
+# Allow Dirac App to read Dirac properties
+get_prop(xiaomiparts_app, vendor_audio_prop)
