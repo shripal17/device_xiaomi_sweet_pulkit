@@ -206,6 +206,18 @@ persist.sys.sf.color_mode=9
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.min.fling_velocity=160 \
+ro.max.fling_velocity=20000 \
+ro.max.fling_velocity=20000 \
+ro.vendor.qti.cgroup_follow.enable=true \ 
+persist.vendor.qti.inputopts.enable=true \
+persist.vendor.qti.inputopts.movetouchslop=0.6 \
+ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0 \
+persist.vendor.radio.report_codec=1 \
+persist.vendor.radio.vdp_on_ims_cap=1
+
 # Fuse
 PRODUCT_PRODUCT_PROPERTIES += \
 persist.sys.fuse.passthrough.enable=true
@@ -220,9 +232,9 @@ ro.vendor.qti.va_aosp.support=1
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
 debug.sf.auto_latch_unsignaled=0 \
-debug.sf.disable_backpressure=1 \
+debug.sf.disable_gl_backpressure=1 \
 debug.sf.disable_client_composition_cache=1 \
-debug.sf.enable_hwc_vds=1 \
+debug.sf.enable_hwc_vds=0 \
 debug.sf.enable_transaction_tracing=false \
 debug.sf.latch_unsignaled=1 \
 debug.sf.predict_hwc_composition_strategy=0 \
@@ -303,6 +315,10 @@ persist.vendor.data.iwlan.enable=true
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.extension_library=libqti-perfd-client.so
+
+# Pre-Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.perf.scroll_opt=true
 
 # Radio/RIL
 PRODUCT_PROPERTY_OVERRIDES += \
