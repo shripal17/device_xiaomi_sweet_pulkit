@@ -439,6 +439,9 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # Enable Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# JamesDSP
+$(call inherit-product-if-exists, vendor/JamesDSP/config.mk)
+
 # Inherit vendor
 $(call inherit-product, vendor/xiaomi/sweet/sweet-vendor.mk)
 
