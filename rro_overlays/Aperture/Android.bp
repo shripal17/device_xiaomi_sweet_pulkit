@@ -1,0 +1,7 @@
+runtime_resource_overlay {
+    name: "ApertureResSweet",
+    sdk_version: "current",
+    system_ext_specific: true,
+    resource_dirs: ["res"],
+    aaptflags: ["--keep-raw-values"]
+}

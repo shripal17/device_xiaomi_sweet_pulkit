@@ -283,6 +283,7 @@ PRODUCT_PACKAGES += \
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
+    ApertureResSweet \
     CarrierConfigResSweet \
     FrameworksResSweet \
     SettingsResSweet \
