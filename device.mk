@@ -281,7 +281,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
-# Overlays
+# RRO Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigResSweet \
     FrameworksResSweet \
