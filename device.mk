@@ -299,12 +299,14 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.sweet-libperfmgr \
+    android.hardware.power-service.lineage-libperfmgr \
     android.hardware.power@1.2.vendor
 
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/bliss/interfaces/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client
 
 # Properties
 include $(LOCAL_PATH)/properties.mk

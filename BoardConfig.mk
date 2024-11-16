@@ -144,6 +144,9 @@ TARGET_COPY_OUT_VENDOR := vendor
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := sm6150
 
+# Power
+TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -162,6 +165,7 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 TARGET_SEPOLICY_DIR := msmsteppe
 -include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/bliss/sepolicy/libperfmgr/sepolicy.mk
 
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2023-03-01
