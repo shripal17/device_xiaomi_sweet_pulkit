@@ -95,7 +95,10 @@ PRODUCT_COPY_FILES += \
 # Crypto
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.keymaster@4.1.vendor
+    android.hardware.keymaster@4.1.vendor \
+
+PRODUCT_PACKAGES += \
+    libcrypto-v33
 
 # Data
 PRODUCT_PACKAGES += \
