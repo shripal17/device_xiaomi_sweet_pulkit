@@ -112,8 +112,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
 PRODUCT_PACKAGES += \
-    gralloc.sm6150 \
-    hwcomposer.sm6150 \
+    hwcomposer.sweet \
     libqdMetaData \
     vendor.display.config@2.0
 
